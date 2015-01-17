@@ -18,7 +18,7 @@ require 5.008;
 # see discussion on dbi-users at
 # http://www.nntp.perl.org/group/perl.dbi.dev/2010/07/msg6096.html and
 # http://www.dagolden.com/index.php/369/version-numbers-should-be-boring/
-$DBD::ODBC::VERSION = '1.51_2';
+$DBD::ODBC::VERSION = '1.51_3';
 
 {
     ## no critic (ProhibitMagicNumbers ProhibitExplicitISA)
@@ -667,7 +667,7 @@ DBD::ODBC - ODBC Driver for DBI
 
 =head1 VERSION
 
-This documentation refers to DBD::ODBC version 1.51_2.
+This documentation refers to DBD::ODBC version 1.51_3.
 
 =head1 WARNING
 
@@ -2466,7 +2466,8 @@ On SQL Server
   INSERT QNtest (a, b, c) SELECT 1, 'ALFKI', '19991212'
   CREATE QUEUE myQueue
   CREATE SERVICE myService ON QUEUE myQueue
-  See L<http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification>
+  See L<http://technet.microsoft.com/en-us/library/ms175110%28v=SQL.105%29.aspx>
+
 
 You need to set these SQL Server permissions unless the subscriber is a sysadmin:
 
