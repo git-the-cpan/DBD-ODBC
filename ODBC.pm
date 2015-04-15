@@ -18,7 +18,7 @@ require 5.008;
 # see discussion on dbi-users at
 # http://www.nntp.perl.org/group/perl.dbi.dev/2010/07/msg6096.html and
 # http://www.dagolden.com/index.php/369/version-numbers-should-be-boring/
-$DBD::ODBC::VERSION = '1.51_4';
+$DBD::ODBC::VERSION = '1.52';
 
 {
     ## no critic (ProhibitMagicNumbers ProhibitExplicitISA)
@@ -665,9 +665,14 @@ __END__
 
 DBD::ODBC - ODBC Driver for DBI
 
+=for html
+<a href="https://travis-ci.org/perl5-dbi/DBD-ODBC"><img src="https://travis-ci.org/perl5-dbi/DBD-ODBC.svg?branch=master"></a>
+<a href="http://badge.fury.io/pl/DBD-ODBC"><img src="https://badge.fury.io/pl/DBD-ODBC.svg" alt="CPAN version" height="18"></a>
+
 =head1 VERSION
 
-This documentation refers to DBD::ODBC version 1.51_4.
+This documentation refers to DBD::ODBC version 1.52.
+
 
 =head1 WARNING
 
