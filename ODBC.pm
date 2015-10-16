@@ -18,7 +18,7 @@ require 5.008;
 # see discussion on dbi-users at
 # http://www.nntp.perl.org/group/perl.dbi.dev/2010/07/msg6096.html and
 # http://www.dagolden.com/index.php/369/version-numbers-should-be-boring/
-$DBD::ODBC::VERSION = '1.52';
+$DBD::ODBC::VERSION = '1.53_1';
 
 {
     ## no critic (ProhibitMagicNumbers ProhibitExplicitISA)
@@ -671,7 +671,7 @@ DBD::ODBC - ODBC Driver for DBI
 
 =head1 VERSION
 
-This documentation refers to DBD::ODBC version 1.52.
+This documentation refers to DBD::ODBC version 1.53_1.
 
 
 =head1 WARNING
@@ -2151,6 +2151,30 @@ problems with SQL like "select myfunc(?) where 1 = 1".
 Also, DBI exports some types which are not available in ODBC e.g.,
 SQL_BLOB. If you are unsure about ODBC types look at your ODBC header
 files or look up valid types in the ODBC specification.
+
+=head3 tables and table_info
+
+These are not really deviations from the DBI specification but a
+clarification of a DBI optional feature.
+
+DBD::ODBC supports wildcards (% and _) in the catalog, schema and type
+arguments. However, you should be aware that if the statement
+attribute SQL_ATTR_METADATA_ID is SQL_TRUE the values are interpreted
+as identifiers and the case is ignored. SQL_ATTR_METADATA_ID defaults
+to SQL_FALSE so normally the values are treated as patterns and the
+case is significant.
+
+SQLGetInfo for SQL_ACCESSIBLE_TABLES can affect what tables you can
+list.
+
+All the special cases listed by DBI (empty strings for all arguments
+but one which is '%') for catalog, schema and table type are supported
+by DBD::ODBC. However, using '%' for table type in a call to the
+tables method does not currently work with DBI up to 1.631 due to an
+issue in DBI.
+
+Although DBD::ODBC supports all the usage cases listed by DBI, your
+ODBC driver may not.
 
 =head2 Unicode
 
